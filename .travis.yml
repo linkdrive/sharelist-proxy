@@ -7,8 +7,8 @@ script:
   - npm install pkg -g
   - npm run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t reruin/sharelist-proxy:latest .
-  - docker push reruin/sharelist-proxy:latest
+  - docker build -t sharelist/proxy:latest .
+  - docker push sharelist/proxy:latest
 before_deploy:
   - mkdir sharelist-proxy_windowns_amd64
   - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_win_amd64.exe sharelist-proxy_windowns_amd64/sharelist-proxy.exe
