@@ -1,0 +1,29 @@
+{
+  "name": "@sharelist/proxy",
+  "description": "Sharelist Proxy",
+  "version": "0.0.1",
+  "keywords": [
+    "sharelist",
+    "proxy"
+  ],
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start":"node index",
+    "build": "pkg . -t node12-win-x64 --output build/sharelist-proxy_win_amd64.exe && pkg . -t node12-linux-x64 --output build/sharelist-proxy_linux_amd64"
+  },
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reruin/sharelist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reruin/sharelist/issues"
+  }
+}

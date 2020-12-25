@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - '12'
+services:
+  - docker
+script:
+  - npm install pkg -g
+  - npm run build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t reruin/sharelist-proxy:latest .
+  - docker push reruin/sharelist-proxy:latest
+before_deploy:
+  - mkdir sharelist-proxy_windowns_amd64
+  - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_win_amd64.exe sharelist-proxy_windowns_amd64/sharelist-proxy.exe
+  - tar -zcvf sharelist-proxy_windowns_amd64.tar.gz sharelist-proxy_windowns_amd64
+  - mkdir sharelist-proxy_darwin_amd64
+  - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_macos_amd64 sharelist-proxy_darwin_amd64/sharelist-proxy
+  - tar -zcvf sharelist-proxy_darwin_amd64.tar.gz sharelist-proxy_darwin_amd64
+  - mkdir sharelist-proxy_linux_amd64
+  - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_linux_amd64 sharelist-proxy_linux_amd64/sharelist-proxy
+  - tar -zcvf sharelist-proxy_linux_amd64.tar.gz sharelist-proxy_linux_amd64
+deploy:
+  provider: releases
+  skip_cleanup: true
+  file: "*.tar.gz"
+  file_glob: true
+  api_key: "$API_KEY"
+  on:
+    tags: true
+    draft: false
