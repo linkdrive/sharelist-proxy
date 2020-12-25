@@ -14,7 +14,7 @@ before_deploy:
   - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_win_amd64.exe sharelist-proxy_windowns_amd64/sharelist-proxy.exe
   - tar -zcvf sharelist-proxy_windowns_amd64.tar.gz sharelist-proxy_windowns_amd64
   - mkdir sharelist-proxy_darwin_amd64
-  - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_macos_amd64 sharelist-proxy_darwin_amd64/sharelist-proxy
+  - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_darwin_amd64 sharelist-proxy_darwin_amd64/sharelist-proxy
   - tar -zcvf sharelist-proxy_darwin_amd64.tar.gz sharelist-proxy_darwin_amd64
   - mkdir sharelist-proxy_linux_amd64
   - cp $TRAVIS_BUILD_DIR/build/sharelist-proxy_linux_amd64 sharelist-proxy_linux_amd64/sharelist-proxy

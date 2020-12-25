@@ -10,7 +10,7 @@
   "bin": "index.js",
   "scripts": {
     "start":"node index",
-    "build": "pkg . -t node12-win-x64 --output build/sharelist-proxy_win_amd64.exe && pkg . -t node12-linux-x64 --output build/sharelist-proxy_linux_amd64"
+    "build": "pkg . -t node12-win-x64 --output build/sharelist-proxy_win_amd64.exe && pkg . -t node12-macos-x64 --output build/sharelist-proxy_darwin_amd64 && pkg . -t node12-linux-x64 --output build/sharelist-proxy_linux_amd64"
   },
   "dependencies": {
     "axios": "^0.21.0"
